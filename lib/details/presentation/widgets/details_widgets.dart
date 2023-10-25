@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 
 class DetailsWidgets extends StatelessWidget {
-  const DetailsWidgets({super.key});
+  const DetailsWidgets({
+    super.key,
+    required this.characterId,
+  });
+
+  final String characterId;
 
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)?.settings.arguments;
-    final id = (args as Map<String, Object?>)['id'] ?? 'Erro';
     return Center(
-      child: Text(id.toString()),
+      child: Text(characterId),
     );
   }
 }
