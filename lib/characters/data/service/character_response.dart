@@ -24,16 +24,32 @@ class CharacterInfoResponse extends Equatable {
   List<Object?> get props => [count, pages, next, prev];
 }
 
+class CharacterLocationResponse extends Equatable {
+  factory CharacterLocationResponse.fromJson(Map<String, dynamic> json) =>
+      CharacterLocationResponse(
+        json['name'] as String,
+      );
+
+  const CharacterLocationResponse(this.name);
+
+  final String name;
+
+  @override
+  List<Object> get props => [name];
+}
+
 class CharacterResponse extends Equatable {
   factory CharacterResponse.fromJson(Map<String, dynamic> json) =>
       CharacterResponse(
-        json['id'] as int,
-        json['name'] as String,
-        json['status'] as String,
-        json['species'] as String,
-        json['type'] as String,
-        json['image'] as String,
-      );
+          json['id'] as int,
+          json['name'] as String,
+          json['status'] as String,
+          json['species'] as String,
+          json['type'] as String,
+          json['image'] as String,
+          CharacterLocationResponse.fromJson(
+            json['location'],
+          ));
 
   const CharacterResponse(
     this.id,
@@ -42,16 +58,19 @@ class CharacterResponse extends Equatable {
     this.species,
     this.type,
     this.image,
+    this.location,
   );
+
   final int id;
   final String name;
   final String status;
   final String species;
   final String type;
   final String image;
+  final CharacterLocationResponse location;
 
   @override
-  List<Object> get props => [id, name, status, species, type, image];
+  List<Object> get props => [id, name, status, species, type, image, location];
 }
 
 class CharactersApiResponse extends Equatable {
@@ -63,7 +82,11 @@ class CharactersApiResponse extends Equatable {
             .toList(),
       );
 
-  const CharactersApiResponse(this.info, this.results);
+  const CharactersApiResponse(
+    this.info,
+    this.results,
+  );
+
   final CharacterInfoResponse info;
   final List<CharacterResponse> results;
 

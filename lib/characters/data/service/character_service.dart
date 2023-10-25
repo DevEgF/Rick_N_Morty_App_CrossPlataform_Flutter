@@ -21,6 +21,8 @@ class CharacterServiceImpl implements CharacterService {
       queryParameters: {'page': '$page'},
     );
 
+    await Future.delayed(const Duration(seconds: 2));
+
     if (response.statusCode == 200) {
       return CharactersApiResponse.fromJson(response.data);
     }
