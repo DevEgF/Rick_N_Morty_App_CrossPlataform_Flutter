@@ -20,8 +20,8 @@ final GoRouter _router = GoRouter(
       builder: (context, state) => const HomePage(),
       routes: <RouteBase>[
         GoRoute(
-          name: 'deatails',
-          path: 'detail/:id',
+          name: 'details',
+          path: 'details/:id',
           builder: (context, state) => DetailsPage(
             characterId: state.pathParameters['id'] ?? '1',
           ),
