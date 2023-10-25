@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ricky_n_morty_aap/details/presentation/page/details_page.dart';
 import 'package:ricky_n_morty_aap/home/page/home_page.dart';
 import 'package:ricky_n_morty_aap/injection.dart';
 import 'package:ricky_n_morty_aap/shared/theme/application_theme.dart';
@@ -18,7 +19,11 @@ class RickyAndMortyApp extends StatelessWidget {
     return MaterialApp(
       title: 'RickAndMortyApp',
       theme: ApplicationTheme.themes[AppTheme.dark]?.themeData,
-      home: const HomePage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomePage(),
+        '/details': (context) => const DetailsPage()
+      },
     );
   }
 }

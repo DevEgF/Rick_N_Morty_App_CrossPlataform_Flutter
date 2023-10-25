@@ -58,7 +58,15 @@ class _CharacterWidgetState extends State<CharacterWidget> {
                   if (index < state.characters.length) {
                     return CharacterCardWidget(
                       response: state.characters[index],
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          '/details',
+                          arguments: {
+                            'id': state.characters[index].id.toString()
+                          },
+                        );
+                      },
                     );
                   } else if (state.result == ResultState.error) {
                     return DefaultTryAgainWidget(
