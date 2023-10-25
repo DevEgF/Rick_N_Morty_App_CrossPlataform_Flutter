@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ricky_n_morty_aap/home/presentation/page/home_page.dart';
+import 'package:ricky_n_morty_aap/home/page/home_page.dart';
 import 'package:ricky_n_morty_aap/injection.dart';
 
 void main() {

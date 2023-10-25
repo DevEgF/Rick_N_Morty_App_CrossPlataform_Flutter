@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ricky_n_morty_aap/characters/presentation/page/character_page.dart';
-import 'package:ricky_n_morty_aap/home/presentation/cubit/navigation_cubit.dart';
+import 'package:ricky_n_morty_aap/home/cubit/navigation_cubit.dart';
 
 class HomeWidgets extends StatelessWidget {
   HomeWidgets({super.key});
