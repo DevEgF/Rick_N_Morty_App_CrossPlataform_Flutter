@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ricky_n_morty_aap/details/presentation/bloc/character_details_bloc.dart';
 
 class DetailsWidgets extends StatelessWidget {
   const DetailsWidgets({
@@ -10,8 +12,20 @@ class DetailsWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(characterId),
+    return BlocBuilder<CharacterDetailsBloc, CharacterDetailsState>(
+      builder: (context, state) {
+        return Stack(
+          children: [
+            if (state is CharacterDetailsErrorState) ...{
+              const Text('Ops, error')
+            } else if (state is CharacterDetailsResultState) ...{
+              const Text(':)')
+            } else ...{
+              const Text('Loading...')
+            }
+          ],
+        );
+      },
     );
   }
 }
