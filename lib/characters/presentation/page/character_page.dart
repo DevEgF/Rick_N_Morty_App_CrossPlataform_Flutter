@@ -11,7 +11,17 @@ class CharacterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => GetIt.I.get<CharacterBloc>()..add(CharacterRequestEvent()),
-      child: const CharacterWidget(),
+      child: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: const Text(
+            'Characters',
+            style: TextStyle(color: Colors.white),
+          ),
+          backgroundColor: Colors.blueGrey,
+        ),
+        body: const CharacterWidget(),
+      ),
     );
   }
 }
