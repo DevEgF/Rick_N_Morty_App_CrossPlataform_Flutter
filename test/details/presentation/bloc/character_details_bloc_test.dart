@@ -1,7 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:ricky_n_morty_aap/characters/presentation/bloc/character_bloc.dart';
 import 'package:ricky_n_morty_aap/details/data/repository/details_repository.dart';
 import 'package:ricky_n_morty_aap/details/data/service/character_detail_response.dart';
 import 'package:ricky_n_morty_aap/details/presentation/bloc/character_details_bloc.dart';
@@ -37,11 +36,9 @@ void main() {
   group('characters details bloc error flow', () {
     late CharacterDetailsRepository repository;
     late CharacterDetailsBloc bloc;
-    late CharacterDetailResponse response;
 
     setUp(() async {
       repository = CharacterDetailsRepositoryMock();
-      response = CharacterDetailResponseMock();
       bloc = CharacterDetailsBloc(repository);
 
       when(() => repository.getCharacterDetails('1'))
